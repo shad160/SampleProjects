@@ -1,0 +1,137 @@
+Case "SANITIZED REQUEST TYPE"
+
+                            Try
+
+                                shtml = "<HTML><HEAD>"
+                                shtml = shtml & "<META content=""text/html; charset=utf-8"" http-equiv=Content-Type>"
+                                shtml = shtml & "<META name=GENERATOR content=""MSHTML 8.00.6001.18928""></HEAD>"
+                                shtml = shtml & "<BODY style=""MARGIN: 4px 4px 1px; FONT: 12pt Sans Serif"">"
+                                shtml = shtml & "<DIV>"
+                                shtml = shtml & "Dear " & sFirstName & ",<br /><br />"
+                                shtml = shtml & "The SANITIZED OFFICE NAME has received your request for a SANITIZED REQUEST TYPE.  We hereby grant you a SANITIZED REQUEST TYPE effective of " & Effective_Date.Substring(0, 10) & ", SANITIZED INFORMATION the " & MLA_Term_Return & " " & MLA_Return_Year & " semester.<br />"  
+                                shtml = shtml & "<br />A registration hold has been placed on your account as of " & Effective_Date.Substring(0, 10) & ". It is extremely important that you communicate with the SANITIZED OFFICE NAME regarding your intention to SANITIZIED INFORMATION f " & MLA_Term_Return & " " & MLA_Return_Year & ", so that you can receive registration information and academic advising from your department. The deadlines for petitioning a SANITIZED REQUEST NAME are June 1 for the fall semester, and November 1 for the spring. Failure to notify our office and your department may jeopardize SANITIZED INFORMATION. <br />"
+                                shtml = shtml & "<br /> While on leave, you must be actively engaged in SANITIZED INFORMATION. As part of SANITIZED CONDITIONS, you will be required to submit the following documentation to the SANITIZED OFFICE NAME, requesting readmission by the deadline above: <br />"
+                                shtml = shtml & "<br /> 1. <a href = 'SANITIZED URL'>Request to SANITIZED REQUEST TYPE form </a>, including a letter explaining the following: <br />"
+                                shtml = shtml & "<br />• SANITIZED CONDITION 1 <br />"
+                                shtml = shtml & "<br />• CONDITION 2 <br />"
+                                shtml = shtml & "<br />• CONDITION 3 <br />"
+                                shtml = shtml & "<br />• CONDITION 4 <br />"
+                                shtml = shtml & "<br /> 2. A letter from the SANITIZED INFORMATION with whome you have been working, explaining the following: <br />"
+                                shtml = shtml & "<br />•SANITIZED CONDITION <br />"
+                                shtml = shtml & "<br />•CONDITION 2 <br />"
+                                shtml = shtml & "<br />•CONDITION 3 <br />"
+                                shtml = shtml & "<br />•CONDITION 4 <br />"
+                                shtml = shtml & "<br /> After review, you will receive communication from the SANITIZED OFFICE NAME concerning your request. You will either be moved forward for further review by SANITIZED, asked to provide additional information, or denied. <br />"
+                                shtml = shtml & "<br /> If you are moving forward for further review by SANITIZED, you will be required to schedule an in-person appointment. <br />"
+                                shtml = shtml & "<br /> After review from SANITIZED, you will receive an email from the SANITIZED OFFICE NAME with your official decision. <br />"
+                                shtml = shtml & "<br /><b>Students wishing to extend their SANITIZED should contact the SANITIZED staff to inquire about eligibility.</b><br />"
+                                shtml = shtml & "<br />A leave of absence may have implications for SANITIZED INFORMATION. SANITIZED should contact the <a href = 'SANITIZED URL'>SANITIZED OFFICE NAME </a> at (212) 854-3711.  If you currently SANITIZED <a href = 'SANITIZED URL'>SANITIZED OFFICE NAME </a>, you must contact SANITIZED PHONE and file a <a href = 'SANITIZED URL'>SANITIZED FORM NAME </a>.  Please be aware that students on leave SANITIZED INFORMATION. Therefore, upon your return, you must reapply for SANITIZED student.  If you are SANITIZED, please contact the <a href='SANITIZED URL'>SANITIZED OFFICE NAME </a> at SANITIZED PHONE.  <br />"
+                                shtml = shtml & "<br />Students on a SANITIZED REQUEST TYPE are not eligible to SANITIZED INFORMATION. For more information, please visit the <a href = 'SANITIZED URL'>SANITIZED OFFICE </a> website.<br />"
+                                shtml = shtml & "<br />During the course of the SANITIZED REQUEST TYPE, students are not permitted to be enrolled in another degree program and are not permitted to be on campus. <br />"
+                                shtml = shtml & "<br />To settle your SANITIZED INFORMATION prior to your leave, you can visit SANITIZED OFFICE NAME, or speak to a counselor at SANITIZED PHONE, or review the following policies <a href = 'SANITIZED URL'> here </a>.<br />"
+                                shtml = shtml & "<br />If you are receive SANITIZED, please contact your department administrator regarding your SANITIZED.<br /><br />"
+                                shtml = shtml & "Best wishes,<br />"
+                                shtml = shtml & "SANITIZED OFFICE NAME<br />"
+                                shtml = shtml & "<DIV></DIV></DIV></BODY></HTML>"
+
+                                Dim mm As New MailMessage(sClientEmailReplyTo, sEmail)
+                                mm.Body = shtml
+                                If chkInternationalStudent = "True" Then
+                                    'mm.CC.Add("HARD CODED EMAIL")
+                                    'mm.CC.Add("HARD CODED EMAIL")
+                                End If
+                                departmentGroup = vault.Sites.GetGroup(sGroup)
+
+                                For Each member In departmentGroup.GroupMembers
+                                    mm.CC.Add(member.Email)
+                                Next
+                                For Each member In PDL.GroupMembers
+                                    mm.CC.Add(member.Email)
+                                Next
+                                For Each member In changeOfStatusGroup.GroupMembers
+                                    mm.CC.Add(member.Email)
+                                    'mm.CC.Add("HARD CODED EMAIL")
+                                    'mm.CC.Add("HARD CODED EMAIL")
+                                Next
+                                mm.CC.Add("HARD CODED EMAIL")
+                                Next
+                                mm.CC.Add("HARD CODED EMAIL")
+                                mm.Subject = "UNIVERSITY NAME - " & Change_of_Status_Menu & " " & PID_Number & " " & txtLastName & ", " & txtFirstName & " " & MLA_Term_Begins & " " & MLA_Begin_Year & " - " & MLA_Term_Return & " " & MLA_Return_Year
+                                mm.IsBodyHtml = True
+
+
+                                For i As Integer = maxAttempt To 0 Step -1
+
+                                    Try
+                                        smtpmail.Send(mm)
+                                        Exit For
+                                    Catch ex As Exception
+
+                                        Thread.Sleep(2000)
+
+                                    End Try
+                                Next
+
+                            Catch ex As Exception
+
+                            End Try
+
+                        Case "SANITIZED REQUEST TYPE"
+
+                            Try
+                                shtml = "<HTML><HEAD>"
+                                shtml = shtml & "<META content=""text/html; charset=utf-8"" http-equiv=Content-Type>"
+                                shtml = shtml & "<META name=GENERATOR content=""MSHTML 8.00.6001.18928""></HEAD>"
+                                shtml = shtml & "<BODY style=""MARGIN:  4px 4px 1px; FONT: 12pt Sans Serif"">"
+                                shtml = shtml & "<DIV>"
+                                shtml = shtml & "Dear " & sFirstName & ",<br /><br />"
+                                shtml = shtml & "Your request to " & Change_of_Status_Menu & " has been approved for " & MLA_Return_Term & " " & MLA_Return_Year_2 & ". Please work with your department to prepare for the academic year (e.g. academic advising). You may register for courses via SSOL. Should you have difficulty registering online, you may register in person at 205 Kent Hall. <br />"
+                                shtml = shtml & "<br />To see registration dates and other information, please visit <a href = 'SANITIZED URL'> this page </a>.<br />"
+                                shtml = shtml & "<br />We encourage you to seek out <a href = 'SANITIZED URL'> SANITIZED OFFICE NAME </a> and/or <a href = 'SANITIZED URL'>SANITIZED OFFICE NAME </a> to maintain your SANITIZED INFORMATION.<br />"
+                                shtml = shtml & "<br />Please contact us if you have any questions or concerns. <br /><br />"
+                                shtml = shtml & "Best Wishes,<br />"
+                                shtml = shtml & "SANITIZED OFFICE NAME<br /><br />"
+                                shtml = shtml & "<DIV></DIV></DIV></BODY></HTML>"
+
+                                Dim mm As New MailMessage(sClientEmailReplyTo, sEmail)
+                                If chkInternationalStudent = "True" Then
+                                    'mm.CC.Add("HARD CODED EMAIL")
+                                    'mm.CC.Add("HARD CODED EMAIL")
+                                End If
+                                departmentGroup = vault.Sites.GetGroup(sGroup)
+
+                                For Each member In departmentGroup.GroupMembers
+                                    mm.CC.Add(member.Email)
+                                Next
+                                For Each member In PDL.GroupMembers
+                                    mm.CC.Add(member.Email)
+                                Next
+                                For Each member In changeOfStatusGroup.GroupMembers
+                                    mm.CC.Add(member.Email)
+                                    'mm.CC.Add("HARD CODED EMAIL")
+                                    'mm.CC.Add("HARD CODED EMAIL")
+                                Next
+                                mm.CC.Add("HARDCODED EMAIL")
+
+                                mm.Body = shtml
+                                mm.Subject = "UNIVERSITY NAME - " & Change_of_Status_Menu & " " & PID_Number & " " & txtLastName & ", " & txtFirstName & " " & MLA_Return_Term & " " & MLA_Return_Year_2
+                                mm.IsBodyHtml = True
+
+
+
+
+                                For i As Integer = maxAttempt To 0 Step -1
+
+                                    Try
+                                        smtpmail.Send(mm)
+                                        Exit For
+                                    Catch ex As Exception
+
+                                        Thread.Sleep(2000)
+
+                                    End Try
+                                Next
+
+                            Catch ex As Exception
+
+                            End Try
